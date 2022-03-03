@@ -23,17 +23,21 @@ export default {
   },
   methods: {
     async signupbtn() {
-      let result = await axios.post("http://localhost:3000/users", {
-        id: uuidv4(),
-        name: this.name,
-        email: this.email,
-        password: this.password,
-      });
+      if (!this.name == "" || !this.email == "" || !this.password == "") {
+        let result = await axios.post("http://localhost:3000/users", {
+          id: uuidv4(),
+          name: this.name,
+          email: this.email,
+          password: this.password,
+        });
 
-      if (result.status === 201) {
-        console.log(result);
-        localStorage.setItem("user-info", JSON.stringify(result));
-        this.$router.push({ name: "Home" });
+        if (result.status === 201) {
+          console.log(result);
+          localStorage.setItem("user-info", JSON.stringify(result));
+          this.$router.push({ name: "Home" });
+        }
+      } else {
+        alert("No empty fields allowed.");
       }
     },
   },
@@ -49,16 +53,17 @@ export default {
   margin-bottom: 30px;
   margin-left: auto;
   margin-right: auto;
-  border: 1px solid blue;
+  border: 0.2px solid black;
   border-radius: 5px;
 }
 
 .signupbtn {
   width: 320px;
   height: 40px;
-  border: 1px solid blue;
+  border: none;
+  background-color: blueviolet;
   border-radius: 5px;
-  color: #000;
+  color: #fff;
   cursor: pointer;
 }
 </style>
