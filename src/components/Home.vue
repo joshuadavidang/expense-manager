@@ -6,24 +6,28 @@
 <script>
 export default {
   name: "Home",
+  mounted() {
+    let user = localStorage.getItem("user-info");
+    if (!user) {
+      // if user is not signed in, automatically routes to login page
+      console.log("Sign in to access your account");
+      this.$router.push({ name: "Login" });
+    } else {
+      let userName = JSON.parse(user)[0].name;
+      this.name = userName;
+    }
+  },
   data() {
     return {
       name: "",
     };
   },
-  mounted() {
-    let user = localStorage.getItem("user-info");
-    let userName = JSON.parse(user)[0].name;
-    this.name = userName;
-    if (!user) {
-      // if user is not signed in, automatically routes to login page
-      this.$router.push({ name: "Login" });
-    }
-  },
   methods: {
     logoutbtn() {
-      localStorage.clear();
-      this.$router.push({ name: "Login" });
+      let user = localStorage.removeItem("user-info");
+      if (!user) {
+        this.$router.push({ name: "Login" });
+      }
     },
   },
 };
