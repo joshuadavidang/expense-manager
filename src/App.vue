@@ -3,13 +3,11 @@
 </template>
 
 <script>
-// import HelloWorld from "./components/HelloWorld.vue";
 // import SignUp from "./components/SignUp.vue";
 
 export default {
   name: "App",
   // components: {
-  //   HelloWorld,
   //   SignUp,
   // },
 };
