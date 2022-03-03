@@ -1,19 +1,17 @@
 <template>
-test
-  <HelloWorld />
-  <SignUp />
+  <router-view />
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
-import SignUp from "./components/SignUp.vue";
+// import HelloWorld from "./components/HelloWorld.vue";
+// import SignUp from "./components/SignUp.vue";
 
 export default {
   name: "App",
-  components: {
-    HelloWorld,
-    SignUp,
-  },
+  // components: {
+  //   HelloWorld,
+  //   SignUp,
+  // },
 };
 </script>
 

@@ -31,8 +31,9 @@ export default {
       });
 
       if (result.status === 201) {
-        console.log("signupdone!");
         console.log(result);
+        localStorage.setItem("user-info", JSON.stringify(result));
+        this.$router.push({ name: "Home" });
       }
     },
   },
