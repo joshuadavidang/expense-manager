@@ -23,7 +23,8 @@ export default {
       let result = await axios.get(
         `http://localhost:3000/users?email=${this.email}&password=${this.password}`
       );
-      if (result.status == 200) {
+      if (result.status == 200 && result.data.length > 0) {
+        console.log(result.data);
         localStorage.setItem("user-info", JSON.stringify(result.data));
         this.$router.push({ name: "Home" });
       }
@@ -49,7 +50,7 @@ export default {
   width: 320px;
   height: 40px;
   border: none;
-  background-color: rgb(25, 17, 146);
+  background-color: rgb(100, 175, 29);
   border-radius: 5px;
   color: #fff;
   cursor: pointer;

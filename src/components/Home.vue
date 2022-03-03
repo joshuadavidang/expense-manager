@@ -1,27 +1,30 @@
 <template>
-  <h1>Hello Vue, Welcome to home page</h1>
+  <h1>Hello {{ this.name }}, Welcome to home page</h1>
   <button class="logoutbtn" v-on:click="logoutbtn">Log Out</button>
 </template>
 
 <script>
 export default {
   name: "Home",
-  methods: {
-    logoutbtn() {
-      localStorage.removeItem("user-info");
-      let user = localStorage.getItem("user-info");
-      if (!user) {
-        // if user-info is blank, automatically routes to Login Page
-        this.$router.push({ name: "Login" });
-      }
-    },
+  data() {
+    return {
+      name: "",
+    };
   },
   mounted() {
     let user = localStorage.getItem("user-info");
+    let userName = JSON.parse(user)[0].name;
+    this.name = userName;
     if (!user) {
-      // if user-info is blank, automatically routes to Sign Up Page
+      // if user is not signed in, automatically routes to login page
       this.$router.push({ name: "Login" });
     }
+  },
+  methods: {
+    logoutbtn() {
+      localStorage.clear();
+      this.$router.push({ name: "Login" });
+    },
   },
 };
 </script>
