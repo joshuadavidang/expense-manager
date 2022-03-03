@@ -1,4 +1,5 @@
 <template>
+test
   <HelloWorld />
   <SignUp />
 </template>
