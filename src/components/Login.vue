@@ -4,6 +4,9 @@
     <input type="email" v-model="email" placeholder="Enter email" />
     <input type="password" v-model="password" placeholder="Enter password" />
     <button class="loginbtn" v-on:click="loginbtn">Login</button>
+    <p>
+      <router-link class="su" to="/signup">Sign Up</router-link>
+    </p>
   </div>
 </template>
 
@@ -24,7 +27,7 @@ export default {
         `http://localhost:3000/users?email=${this.email}&password=${this.password}`
       );
       if (result.status == 200 && result.data.length > 0) {
-        console.log(result.data);
+        console.log(result.data[0]);
         localStorage.setItem("user-info", JSON.stringify(result.data));
         this.$router.push({ name: "Home" });
       }
@@ -54,5 +57,9 @@ export default {
   border-radius: 5px;
   color: #fff;
   cursor: pointer;
+}
+
+.su {
+  text-decoration: underline;
 }
 </style>

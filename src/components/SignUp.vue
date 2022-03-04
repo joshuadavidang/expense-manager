@@ -5,6 +5,10 @@
     <input type="email" v-model="email" placeholder="Enter email" />
     <input type="password" v-model="password" placeholder="Enter password" />
     <button class="signupbtn" v-on:click="signupbtn">Sign Up</button>
+
+    <p>
+      <router-link class="su" to="/login">Login</router-link>
+    </p>
   </div>
 </template>
 
@@ -33,8 +37,8 @@ export default {
 
         if (result.status === 201) {
           console.log(result);
-          localStorage.setItem("user-info", JSON.stringify(result));
-          this.$router.push({ name: "Home" });
+          localStorage.setItem("user-info", JSON.stringify(result.data));
+          this.$router.push({ name: "Login" });
         }
       } else {
         alert("No empty fields allowed.");
@@ -65,5 +69,9 @@ export default {
   border-radius: 5px;
   color: #fff;
   cursor: pointer;
+}
+
+.su {
+  text-decoration: underline;
 }
 </style>
