@@ -23,13 +23,17 @@ export default {
   },
   methods: {
     async loginbtn() {
-      let result = await axios.get(
-        `http://localhost:3000/users?email=${this.email}&password=${this.password}`
-      );
-      if (result.status == 200 && result.data.length > 0) {
-        console.log(result.data[0]);
-        localStorage.setItem("user-info", JSON.stringify(result.data));
-        this.$router.push({ name: "Home" });
+      if (this.email == "" || this.password == "") {
+        alert("Empty fields not allowed");
+      } else {
+        let result = await axios.get(
+          `http://localhost:3000/users?email=${this.email}&password=${this.password}`
+        );
+        if (result.status == 200 && result.data.length > 0) {
+          console.log(result.data[0]);
+          localStorage.setItem("user-info", JSON.stringify(result.data));
+          this.$router.push({ name: "Home" });
+        }
       }
     },
   },
