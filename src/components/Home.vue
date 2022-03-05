@@ -37,9 +37,10 @@ export default {
 .logoutbtn {
   width: 320px;
   height: 40px;
-  border: 1px solid blue;
+  border: none;
+  background-color: red;
   border-radius: 5px;
-  color: #000;
+  color: #fff;
   cursor: pointer;
 }
 </style>
