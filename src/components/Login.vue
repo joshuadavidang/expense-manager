@@ -1,12 +1,24 @@
 <template>
-  <h1>Login Page</h1>
-  <div class="login">
-    <input type="email" v-model="email" placeholder="Enter email" />
-    <input type="password" v-model="password" placeholder="Enter password" />
-    <button class="loginbtn" v-on:click="loginbtn">Login</button>
-    <p>
-      <router-link class="su" to="/signup">Sign Up</router-link>
-    </p>
+  <div class="flex bg-indigo-500 w-screen h-screen">
+    <div class="login bg-indigo-200 w-1/4">
+      <img src="../assets/lh.png" />
+    </div>
+
+    <div class="login bg-red-200 w-3/4">
+      <div>
+        <h1 class="font-bold text-center text-2xl">Login Page</h1>
+        <input type="email" v-model="email" placeholder="Enter email" />
+        <input
+          type="password"
+          v-model="password"
+          placeholder="Enter password"
+        />
+        <button class="loginbtn" v-on:click="loginbtn">Login</button>
+        <p>
+          <router-link class="su" to="/signup">Sign Up</router-link>
+        </p>
+      </div>
+    </div>
   </div>
 </template>
 
