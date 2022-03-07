@@ -1,14 +1,29 @@
 <template>
-  <h1>Sign Up</h1>
-  <div class="register">
-    <input type="text" v-model="name" placeholder="Enter name" />
-    <input type="email" v-model="email" placeholder="Enter email" />
-    <input type="password" v-model="password" placeholder="Enter password" />
-    <button class="signupbtn" v-on:click="signupbtn">Sign Up</button>
+  <div class="flex w-screen h-screen grid justify-items-center">
+    <div class="register flex items-center">
+      <div>
+        <h1 class="font-bold text-center text-2xl mb-5 font-mono">
+          Sign Up Page.
+        </h1>
 
-    <p>
-      <router-link class="su" to="/login">Login</router-link>
-    </p>
+        <input type="text" v-model="name" placeholder="Enter name" />
+        <input type="email" v-model="email" placeholder="Enter email" />
+        <input
+          type="password"
+          v-model="password"
+          placeholder="Enter password"
+        />
+        <button class="signupbtn" v-on:click="signupbtn">Sign Up</button>
+
+        <p>
+          <router-link to="/login">
+            <p class="text-center mt-3">
+              Sign up <span class="underline">here</span>
+            </p></router-link
+          >
+        </p>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -49,7 +64,7 @@ export default {
 </script>
 
 <style scoped>
-.register input {
+/* .register input {
   width: 300px;
   height: 40px;
   padding-left: 20px;
@@ -59,7 +74,7 @@ export default {
   margin-right: auto;
   border: 0.2px solid black;
   border-radius: 5px;
-}
+} */
 
 .signupbtn {
   width: 320px;
@@ -69,9 +84,5 @@ export default {
   border-radius: 5px;
   color: #fff;
   cursor: pointer;
-}
-
-.su {
-  text-decoration: underline;
 }
 </style>

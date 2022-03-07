@@ -1,12 +1,11 @@
 <template>
-  <div class="flex bg-indigo-500 w-screen h-screen">
-    <div class="login bg-indigo-200 w-1/4">
-      <img src="../assets/lh.png" />
-    </div>
-
-    <div class="login bg-red-200 w-3/4">
+  <div class="flex w-screen h-screen grid justify-items-center">
+    <div class="login flex items-center">
       <div>
-        <h1 class="font-bold text-center text-2xl">Login Page</h1>
+        <h1 class="font-bold text-center text-2xl mb-5 font-mono">
+          Login Page.
+        </h1>
+
         <input type="email" v-model="email" placeholder="Enter email" />
         <input
           type="password"
@@ -15,7 +14,11 @@
         />
         <button class="loginbtn" v-on:click="loginbtn">Login</button>
         <p>
-          <router-link class="su" to="/signup">Sign Up</router-link>
+          <router-link to="/signup">
+            <p class="text-center mt-3">
+              Sign up <span class="underline">here</span>
+            </p></router-link
+          >
         </p>
       </div>
     </div>
@@ -53,7 +56,7 @@ export default {
 </script>
 
 <style scoped>
-.login input {
+/* .login input {
   width: 300px;
   height: 40px;
   padding-left: 20px;
@@ -63,7 +66,7 @@ export default {
   margin-right: auto;
   border: 0.2px solid black;
   border-radius: 5px;
-}
+} */
 
 .loginbtn {
   width: 320px;
@@ -75,7 +78,7 @@ export default {
   cursor: pointer;
 }
 
-.su {
-  text-decoration: underline;
+.img {
+  width: 20%;
 }
 </style>
