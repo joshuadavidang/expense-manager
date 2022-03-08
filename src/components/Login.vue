@@ -6,13 +6,30 @@
           Login Page.
         </h1>
 
-        <input type="email" v-model="email" placeholder="Enter email" />
-        <input
-          type="password"
-          v-model="password"
-          placeholder="Enter password"
-        />
+        <label class="block mb-5">
+          <span class="font-semibold"> Email </span>
+          <input
+            type="email"
+            v-model="email"
+            name="email"
+            class="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"
+            placeholder="joshua.ang@blockchain.sg"
+          />
+        </label>
+
+        <label class="block mb-5">
+          <span class="font-semibold"> Password </span>
+          <input
+            type="password"
+            v-model="password"
+            name="password"
+            class="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"
+            placeholder="*********"
+          />
+        </label>
+
         <button class="loginbtn" v-on:click="loginbtn">Login</button>
+
         <p>
           <router-link to="/signup">
             <p class="text-center mt-3">
@@ -48,6 +65,11 @@ export default {
           console.log(result.data[0]);
           localStorage.setItem("user-info", JSON.stringify(result.data));
           this.$router.push({ name: "Home" });
+        } else {
+          alert("wrong password!");
+          // reset input fields
+          this.email = "";
+          this.password = "";
         }
       }
     },

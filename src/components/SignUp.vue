@@ -6,19 +6,34 @@
           Sign Up Page.
         </h1>
 
-        <input type="text" v-model="name" placeholder="Enter name" />
-        <input type="email" v-model="email" placeholder="Enter email" />
-        <input
-          type="password"
-          v-model="password"
-          placeholder="Enter password"
-        />
+        <label class="block mb-5">
+          <span class="font-semibold"> Email </span>
+          <input
+            type="email"
+            v-model="email"
+            name="email"
+            class="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"
+            placeholder="joshua.ang@blockchain.sg"
+          />
+        </label>
+
+        <label class="block mb-5">
+          <span class="font-semibold"> Password </span>
+          <input
+            type="password"
+            v-model="password"
+            name="password"
+            class="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"
+            placeholder="*********"
+          />
+        </label>
+
         <button class="signupbtn" v-on:click="signupbtn">Sign Up</button>
 
         <p>
           <router-link to="/login">
             <p class="text-center mt-3">
-              Sign up <span class="underline">here</span>
+              Login <span class="underline">here</span>
             </p></router-link
           >
         </p>
@@ -51,7 +66,7 @@ export default {
         });
 
         if (result.status === 201) {
-          console.log(result);
+          console.log("account successfully created", result);
           localStorage.setItem("user-info", JSON.stringify(result.data));
           this.$router.push({ name: "Login" });
         }
