@@ -21,7 +21,7 @@
       </label>
 
       <div class="flex justify-center">
-        <div class="bg-white w-4/5 p-5 mt-6 mb-10 rounded-xl">
+        <div class="bg-white w-4/5 p-5 mt-6 mb-10 rounded-xl h-96 overflow-y-auto">
           <h2 class="text-center mb-3 font-semibold">Latest Transactions</h2>
 
           <div class="flex justify-center">
@@ -45,11 +45,21 @@
       </div>
 
       <label class="flex justify-center">
-        <button class="logoutbtn" v-on:click="logoutbtn">Log Out</button>
+        <button
+          type="button"
+          v-on:click="logoutbtn"
+          class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+        >
+          Log Out
+        </button>
       </label>
     </div>
 
-    <div class="bg-yellow-300 w-3/4 h-screen">remaining screen</div>
+    <div class="bg-white w-3/4 h-screen">
+      <div>
+        <p>Remaining Screen</p>
+      </div>
+    </div>
   </div>
 </template>
 
