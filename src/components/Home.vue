@@ -8,7 +8,7 @@
       <label class="flex justify-center">
         <p class="pt-5 text-white text-sm">
           <span>
-            <button class="addBtn" v-on:click="addBtn">
+            <button class="addBtn bg-white" v-on:click="addBtn">
               Add Transaction
             </button></span
           >
@@ -84,7 +84,6 @@ export default {
 }
 
 .addBtn {
-  background-color: #fff;
   border-radius: 5px;
   color: #000;
   cursor: pointer;

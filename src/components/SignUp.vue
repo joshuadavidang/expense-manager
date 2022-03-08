@@ -3,7 +3,7 @@
     <div class="register flex items-center">
       <div class="bg-gray-50 p-16 rounded-3xl">
         <h1 class="font-bold text-center text-2xl mb-5 font-mono">
-          Sign Up Page.
+          Sign Up.
         </h1>
 
         <label class="block mb-5">
