@@ -1,7 +1,7 @@
 <template>
   <div class="flex w-screen h-screen grid justify-items-center">
     <div class="login flex items-center">
-      <div class="bg-gray-50 p-16 rounded-lg">
+      <div class="bg-gray-50 p-16 rounded-3xl">
         <h1 class="font-bold text-center text-2xl mb-5 font-mono">
           Login Page.
         </h1>
@@ -12,7 +12,7 @@
             type="email"
             v-model="email"
             name="email"
-            class="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"
+            class="mt-1 px-3 py-2.5 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"
             placeholder="joshua.ang@blockchain.sg"
           />
         </label>
@@ -23,7 +23,7 @@
             type="password"
             v-model="password"
             name="password"
-            class="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"
+            class="mt-1 px-3 py-2.5 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"
             placeholder="*********"
           />
         </label>
@@ -80,9 +80,9 @@ export default {
 <style scoped>
 .loginbtn {
   width: 320px;
-  height: 40px;
+  height: 48px;
   border: none;
-  background-color: rgb(100, 175, 29);
+  background-color: #24245c;
   border-radius: 5px;
   color: #fff;
   cursor: pointer;
