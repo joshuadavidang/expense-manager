@@ -1,10 +1,21 @@
 <template>
   <div class="flex w-screen h-screen grid justify-items-center">
     <div class="register flex items-center">
-      <div>
+      <div class="bg-gray-50 p-16 rounded-lg">
         <h1 class="font-bold text-center text-2xl mb-5 font-mono">
           Sign Up Page.
         </h1>
+
+        <label class="block mb-5">
+          <span class="font-semibold"> Name </span>
+          <input
+            type="text"
+            v-model="name"
+            name="name"
+            class="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"
+            placeholder="Joshua David Ang"
+          />
+        </label>
 
         <label class="block mb-5">
           <span class="font-semibold"> Email </span>

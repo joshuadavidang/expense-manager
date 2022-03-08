@@ -1,7 +1,7 @@
 <template>
   <div class="flex w-screen h-screen grid justify-items-center">
     <div class="login flex items-center">
-      <div>
+      <div class="bg-gray-50 p-16 rounded-lg">
         <h1 class="font-bold text-center text-2xl mb-5 font-mono">
           Login Page.
         </h1>
@@ -78,18 +78,6 @@ export default {
 </script>
 
 <style scoped>
-/* .login input {
-  width: 300px;
-  height: 40px;
-  padding-left: 20px;
-  display: block;
-  margin-bottom: 30px;
-  margin-left: auto;
-  margin-right: auto;
-  border: 0.2px solid black;
-  border-radius: 5px;
-} */
-
 .loginbtn {
   width: 320px;
   height: 40px;
