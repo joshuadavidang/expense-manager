@@ -108,7 +108,6 @@
         <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
           <button
             v-on:click="newTransaction"
-            type="button"
             class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm"
           >
             Add
@@ -125,17 +124,45 @@
 </template>
 
 <script>
+import axios from "axios";
+import { v4 as uuidv4 } from "uuid";
+
 export default {
   name: "AddTransaction",
   date() {
     return {
+      id: "",
       description: "",
       transactionDate: "",
       transactionAmount: "",
     };
   },
   methods: {
-    newTransaction() {},
+    async newTransaction() {
+      if (
+        !this.description == "" &&
+        !this.transactionDate == "" &&
+        !this.transactionAmount == ""
+      ) {
+        let result = await axios.post("http://localhost:3000/transactions", {
+          id: uuidv4(),
+          description: this.description,
+          transactionDate: this.transactionDate,
+          transactionAmount: this.transactionAmount,
+        });
+
+        if (result.status == 201) {
+          this.description = "";
+          this.transactionDate = "";
+          this.transactionAmount = "";
+          console.log("Transaction Added!", result);
+        } else {
+          console.log("Error");
+        }
+      } else {
+        alert("Empty fields not allowed");
+      }
+    },
   },
 };
 </script>

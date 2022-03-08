@@ -3,7 +3,7 @@
     <div class="register flex items-center">
       <div class="bg-gray-50 p-16 rounded-3xl">
         <h1 class="font-bold text-center text-2xl mb-5 font-mono">
-          Sign Up.
+          Create an account.
         </h1>
 
         <label class="block mb-5">
@@ -39,12 +39,14 @@
           />
         </label>
 
-        <button class="signupbtn" v-on:click="signupbtn">Sign Up</button>
+        <button class="signupbtn" v-on:click="signupbtn">
+          Create an account
+        </button>
 
         <p>
           <router-link to="/login">
             <p class="text-center mt-3">
-              Login <span class="underline">here</span>
+              Have an account? Login <span class="underline">here</span>
             </p></router-link
           >
         </p>
@@ -68,7 +70,7 @@ export default {
   },
   methods: {
     async signupbtn() {
-      if (!this.name == "" || !this.email == "" || !this.password == "") {
+      if (!this.name == "" && !this.email == "" && !this.password == "") {
         let result = await axios.post("http://localhost:3000/users", {
           id: uuidv4(),
           name: this.name,
@@ -90,7 +92,6 @@ export default {
 </script>
 
 <style scoped>
-
 .signupbtn {
   width: 320px;
   height: 48px;

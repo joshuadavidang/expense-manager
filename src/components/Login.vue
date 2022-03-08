@@ -3,7 +3,7 @@
     <div class="login flex items-center">
       <div class="bg-gray-50 p-16 rounded-3xl">
         <h1 class="font-bold text-center text-2xl mb-5 font-mono">
-          Login Page.
+          Sign in.
         </h1>
 
         <label class="block mb-5">
@@ -28,12 +28,14 @@
           />
         </label>
 
-        <button class="loginbtn" v-on:click="loginbtn">Login</button>
+        <button class="loginbtn" v-on:click="loginbtn">
+          Login to your account
+        </button>
 
         <p>
           <router-link to="/signup">
-            <p class="text-center mt-3">
-              Sign up <span class="underline">here</span>
+            <p class="mt-5">
+              Not registered? Create account <span class="underline">here</span>
             </p></router-link
           >
         </p>

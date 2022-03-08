@@ -7,26 +7,40 @@
 
       <label class="flex justify-center">
         <p class="pt-5 text-white text-sm">
-          <span>
-            <button class="addBtn bg-white" v-on:click="addBtn">
-              Add Transaction
-            </button></span
-          >
+          <router-link to="/addtransaction">
+            <span>
+              <button
+                class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+                v-on:click="addBtn"
+              >
+                Add Transaction
+              </button></span
+            >
+          </router-link>
         </p>
       </label>
 
       <div class="flex justify-center">
-        <div class="bg-white w-11/12 p-5 mt-10 mb-10 rounded-xl">
-          <p>HELLO</p>
+        <div class="bg-white w-4/5 p-5 mt-6 mb-10 rounded-xl">
+          <h2 class="text-center mb-3 font-semibold">Latest Transactions</h2>
 
-          <p>HELLO</p>
-
-          <p>HELLO</p>
-          <p>HELLO</p>
-          <p>HELLO</p>
-          <p>HELLO</p>
-          <p>HELLO</p>
-          <p>HELLO</p>
+          <div class="flex justify-center">
+            <ul
+              class="w-48 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+            >
+              <li
+                class="py-2 px-4 w-full rounded-t-lg border-b border-gray-200 dark:border-gray-600"
+                v-for="item in data"
+                :key="item.id"
+              >
+                <span class="inline-block"> {{ item.description }}</span>
+                <span class="block"> {{ item.transactionDate }}</span>
+                <span class="text-red-500">
+                  - {{ item.transactionAmount }}</span
+                >
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
 
@@ -35,11 +49,13 @@
       </label>
     </div>
 
-    <div class="bg-red-300 w-3/4 h-screen">remaining screen</div>
+    <div class="bg-yellow-300 w-3/4 h-screen">remaining screen</div>
   </div>
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   name: "Home",
   mounted() {
@@ -52,10 +68,17 @@ export default {
       let userName = JSON.parse(user)[0].name;
       this.name = userName;
     }
+
+    axios.get("http://localhost:3000/transactions").then((result) => {
+      console.log(result.data);
+      this.data = result.data;
+    });
   },
   data() {
     return {
       name: "",
+      data: "",
+      items: [{ message: "Foo" }, { message: "Bar" }],
     };
   },
   methods: {
@@ -66,7 +89,7 @@ export default {
       }
     },
     addBtn() {
-      alert("Add clicked");
+      // alert("Add clicked");
     },
   },
 };
