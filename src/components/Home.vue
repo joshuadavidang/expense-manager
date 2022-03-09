@@ -6,7 +6,7 @@
       </label>
 
       <label class="flex justify-center">
-        <p class="pt-5 text-white text-sm">
+        <p class="flex pt-5 text-white text-sm">
           <router-link to="/addtransaction">
             <span>
               <button
@@ -17,6 +17,8 @@
               </button></span
             >
           </router-link>
+
+          <span> <DarkMode /></span>
         </p>
       </label>
 
@@ -73,6 +75,7 @@
 import axios from "axios";
 // import Table from "./Table.vue";
 import NavBar from "./NavBar.vue";
+import DarkMode from "./DarkMode.vue";
 
 export default {
   name: "Home",
@@ -117,6 +120,7 @@ export default {
   components: {
     // Table,
     NavBar,
+    DarkMode,
   },
 };
 </script>
