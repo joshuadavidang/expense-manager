@@ -58,11 +58,12 @@
     </div>
 
     <div class="bg-white w-3/4 h-screen">
+      <NavBar />
       <div>
         <p>Total Amount Spent</p>
         <h2 class="text-mono text-5xl">${{ this.displaySum }}</h2>
 
-        <Table />
+        <!-- <Table /> -->
       </div>
     </div>
   </div>
@@ -70,7 +71,8 @@
 
 <script>
 import axios from "axios";
-import Table from "./Table.vue";
+// import Table from "./Table.vue";
+import NavBar from "./NavBar.vue";
 
 export default {
   name: "Home",
@@ -93,16 +95,6 @@ export default {
         this.displaySum = sum;
       }
     });
-
-    if (
-      localStorage.getItem("color-theme") === "dark" ||
-      (!("color-theme" in localStorage) &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches)
-    ) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
   },
   data() {
     return {
@@ -123,7 +115,8 @@ export default {
     },
   },
   components: {
-    Table,
+    // Table,
+    NavBar,
   },
 };
 </script>
