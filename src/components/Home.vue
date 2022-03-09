@@ -21,7 +21,9 @@
       </label>
 
       <div class="flex justify-center">
-        <div class="bg-white w-4/5 p-5 mt-6 mb-10 rounded-xl h-96 overflow-y-auto">
+        <div
+          class="bg-white w-4/5 p-5 mt-6 mb-10 rounded-xl h-96 overflow-y-auto"
+        >
           <h2 class="text-center mb-3 font-semibold">Latest Transactions</h2>
 
           <div class="flex justify-center">
@@ -36,7 +38,7 @@
                 <span class="inline-block"> {{ item.description }}</span>
                 <span class="block"> {{ item.transactionDate }}</span>
                 <span class="text-red-500">
-                  - {{ item.transactionAmount }}</span
+                  - ${{ item.transactionAmount }}</span
                 >
               </li>
             </ul>
@@ -57,7 +59,8 @@
 
     <div class="bg-white w-3/4 h-screen">
       <div>
-        <p>Remaining Screen</p>
+        <p>Total Amount Spent</p>
+        <h2 class="text-mono text-5xl">${{ this.displaySum }}</h2>
       </div>
     </div>
   </div>
@@ -82,13 +85,18 @@ export default {
     axios.get("http://localhost:3000/transactions").then((result) => {
       console.log(result.data);
       this.data = result.data;
+      let sum = 0;
+      for (var i = 0; i < result.data.length; i++) {
+        sum += result.data[i].transactionAmount;
+        this.displaySum = sum;
+      }
     });
   },
   data() {
     return {
       name: "",
       data: "",
-      items: [{ message: "Foo" }, { message: "Bar" }],
+      displaySum: 0,
     };
   },
   methods: {

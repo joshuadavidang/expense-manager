@@ -93,11 +93,11 @@
                     </h3>
 
                     <input
-                      type="transactionAmount"
+                      type="number"
                       v-model="transactionAmount"
                       name="transactionAmount"
                       class="mt-1 px-3 py-2.5 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"
-                      placeholder="$7.80"
+                      placeholder="7.80"
                     />
                   </span>
                 </p>
@@ -112,6 +112,7 @@
           >
             Add
           </button>
+
           <router-link to="/">
             <button
               class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
@@ -136,16 +137,18 @@ export default {
       id: "",
       description: "",
       transactionDate: "",
-      transactionAmount: "",
+      transactionAmount: 0,
     };
   },
   methods: {
     async newTransaction() {
       if (
-        !this.description == "" &&
-        !this.transactionDate == "" &&
-        !this.transactionAmount == ""
+        this.description == "" &&
+        this.transactionDate == "" &&
+        this.transactionAmount == 0
       ) {
+        alert("Empty fields not allowed");
+      } else {
         let result = await axios.post("http://localhost:3000/transactions", {
           id: uuidv4(),
           description: this.description,
@@ -156,13 +159,11 @@ export default {
         if (result.status == 201) {
           this.description = "";
           this.transactionDate = "";
-          this.transactionAmount = "";
+          this.transactionAmount = 0;
           console.log("Transaction Added!", result);
         } else {
           console.log("Error");
         }
-      } else {
-        alert("Empty fields not allowed");
       }
     },
   },

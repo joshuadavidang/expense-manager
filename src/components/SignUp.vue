@@ -45,7 +45,7 @@
 
         <p>
           <router-link to="/login">
-            <p class="text-center mt-3">
+            <p class="mt-5">
               Have an account? Login <span class="underline">here</span>
             </p></router-link
           >
