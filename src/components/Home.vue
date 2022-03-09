@@ -60,12 +60,14 @@
     </div>
 
     <div class="bg-white w-3/4 h-screen">
-      <NavBar />
       <div>
+        <NavBar />
+      </div>
+
+      <div class="m-8">
         <p>Total Amount Spent</p>
         <h2 class="text-mono text-5xl">${{ this.displaySum }}</h2>
-
-        <!-- <Table /> -->
+        <Table />
       </div>
     </div>
   </div>
@@ -73,7 +75,7 @@
 
 <script>
 import axios from "axios";
-// import Table from "./Table.vue";
+import Table from "./Table.vue";
 import NavBar from "./NavBar.vue";
 import DarkMode from "./DarkMode.vue";
 
@@ -118,7 +120,7 @@ export default {
     },
   },
   components: {
-    // Table,
+    Table,
     NavBar,
     DarkMode,
   },
