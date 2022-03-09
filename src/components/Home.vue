@@ -2,7 +2,7 @@
   <div class="flex bg-red-200 w-screen h-screen">
     <div class="bg-dblue w-1/4 h-screen">
       <label class="flex justify-center">
-        <p class="pt-16 text-white text-lg">Hello, {{ this.name }} 👋</p>
+        <p class="pt-16 text-white text-sm">Hello, {{ this.name }} 👋</p>
       </label>
 
       <label class="flex justify-center">
@@ -61,6 +61,8 @@
       <div>
         <p>Total Amount Spent</p>
         <h2 class="text-mono text-5xl">${{ this.displaySum }}</h2>
+
+        <Table />
       </div>
     </div>
   </div>
@@ -68,6 +70,7 @@
 
 <script>
 import axios from "axios";
+import Table from "./Table.vue";
 
 export default {
   name: "Home",
@@ -90,6 +93,16 @@ export default {
         this.displaySum = sum;
       }
     });
+
+    if (
+      localStorage.getItem("color-theme") === "dark" ||
+      (!("color-theme" in localStorage) &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches)
+    ) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
   },
   data() {
     return {
@@ -108,6 +121,9 @@ export default {
     addBtn() {
       // alert("Add clicked");
     },
+  },
+  components: {
+    Table,
   },
 };
 </script>
