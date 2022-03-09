@@ -32,7 +32,7 @@
             >
               <li
                 class="py-2 px-4 w-full rounded-t-lg border-b border-gray-200 dark:border-gray-600"
-                v-for="item in data"
+                v-for="item in items"
                 :key="item.id"
               >
                 <span class="inline-block"> {{ item.description }}</span>
@@ -83,8 +83,7 @@ export default {
     }
 
     axios.get("http://localhost:3000/transactions").then((result) => {
-      console.log(result.data);
-      this.data = result.data;
+      this.items = result.data;
       let sum = 0;
       for (var i = 0; i < result.data.length; i++) {
         sum += result.data[i].transactionAmount;
@@ -95,7 +94,7 @@ export default {
   data() {
     return {
       name: "",
-      data: "",
+      items: "",
       displaySum: 0,
     };
   },

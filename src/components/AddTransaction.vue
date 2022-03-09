@@ -76,7 +76,7 @@
                     </h3>
 
                     <input
-                      type="text"
+                      type="date"
                       v-model="transactionDate"
                       name="transactionDate"
                       class="mb-3 mt-1 px-3 py-2.5 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"
@@ -89,7 +89,7 @@
                       class="mb-2 text-lg leading-6 font-medium text-gray-900"
                       id="modal-title"
                     >
-                      Amount
+                      Amount ($)
                     </h3>
 
                     <input
@@ -152,7 +152,7 @@ export default {
         let result = await axios.post("http://localhost:3000/transactions", {
           id: uuidv4(),
           description: this.description,
-          transactionDate: this.transactionDate,
+          transactionDate: new Date(this.transactionDate).toDateString(),
           transactionAmount: this.transactionAmount,
         });
 
