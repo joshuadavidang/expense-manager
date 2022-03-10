@@ -65,7 +65,7 @@
       </div>
 
       <div class="m-8">
-        <p>Total Amount Spent</p>
+        <p>Total Amount Spent ($)</p>
         <h2 class="text-mono text-5xl">${{ this.displaySum }}</h2>
         <Table />
       </div>
