@@ -29,15 +29,15 @@ export default {
     };
   },
   mounted() {
-    if (
-      localStorage.getItem("color-theme") === "dark" ||
-      (!("color-theme" in localStorage) &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches)
-    ) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
+    // if (
+    //   localStorage.getItem("color-theme") === "dark" ||
+    //   (!("color-theme" in localStorage) &&
+    //     window.matchMedia("(prefers-color-scheme: dark)").matches)
+    // ) {
+    //   document.documentElement.classList.add("dark");
+    // } else {
+    //   document.documentElement.classList.remove("dark");
+    // }
   },
   methods: {
     toggleBtn() {
@@ -45,14 +45,13 @@ export default {
         this.isActive = true;
         console.log(this.isActive);
         document.documentElement.classList.add("dark");
-        localStorage.setItem("color-theme", "dark");
-        // alert("Dark mode activated");
+
         // Dark Mode Activated
       } else {
         this.isActive = false;
         console.log(this.isActive);
         document.documentElement.classList.remove("dark");
-        localStorage.setItem("color-theme", "light");
+
         // Dark Mode Disabled
       }
     },
