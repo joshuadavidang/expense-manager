@@ -1,173 +1,60 @@
 <template>
-  <h1>this is table</h1>
+  <div>
+    <div class="flex flex-col">
+      <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+        <div class="inline-block py-2 min-w-full sm:px-6 lg:px-8">
+          <div class="overflow-hidden shadow-md sm:rounded-lg">
+            <table class="min-w-full">
+              <thead class="bg-gray-50 dark:bg-gray-700">
+                <tr>
+                  <th
+                    scope="col"
+                    class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400"
+                  >
+                    Description
+                  </th>
+                  <th
+                    scope="col"
+                    class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400"
+                  >
+                    Date
+                  </th>
 
-  <div class="flex flex-col">
-    <div class="overflow-x-auto shadow-md sm:rounded-lg">
-      <div class="inline-block w-full align-middle">
-        <div class="overflow-hidden">
-          <table
-            class="min-w-full divide-y divide-gray-200 table-fixed dark:divide-gray-700"
-          >
-            <thead class="bg-gray-100 dark:bg-gray-700">
-              <tr>
-                <th
-                  scope="col"
-                  class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400"
-                >
-                  Product Name
-                </th>
-                <th
-                  scope="col"
-                  class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400"
-                >
-                  Category
-                </th>
-                <th
-                  scope="col"
-                  class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400"
-                >
-                  Price
-                </th>
-                <th scope="col" class="p-4">
-                  <span class="sr-only">Edit</span>
-                </th>
-              </tr>
-            </thead>
-            <tbody
-              class="bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700"
-            >
-              <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
-                <td
-                  class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                >
-                  Apple Imac 27"
-                </td>
-                <td
-                  class="py-4 px-6 text-sm font-medium text-gray-500 whitespace-nowrap dark:text-white"
-                >
-                  Desktop PC
-                </td>
-                <td
-                  class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                >
-                  $1999
-                </td>
-                <td
-                  class="py-4 px-6 text-sm font-medium text-right whitespace-nowrap"
-                >
-                  <a
-                    href="#"
-                    class="text-blue-600 dark:text-blue-500 hover:underline"
-                    >Edit</a
+                  <th
+                    scope="col"
+                    class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400"
                   >
-                </td>
-              </tr>
-              <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
-                <td
-                  class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                    Amount Spent ($)
+                  </th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr
+                  class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700"
+                  v-for="item in items"
+                  :key="item.id"
                 >
-                  Apple MacBook Pro 17"
-                </td>
-                <td
-                  class="py-4 px-6 text-sm font-medium text-gray-500 whitespace-nowrap dark:text-white"
-                >
-                  Laptop
-                </td>
-                <td
-                  class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                >
-                  $2999
-                </td>
-                <td
-                  class="py-4 px-6 text-sm font-medium text-right whitespace-nowrap"
-                >
-                  <a
-                    href="#"
-                    class="text-blue-600 dark:text-blue-500 hover:underline"
-                    >Edit</a
+                  <td
+                    class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white"
                   >
-                </td>
-              </tr>
-              <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
-                <td
-                  class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                >
-                  iPhone 13 Pro
-                </td>
-                <td
-                  class="py-4 px-6 text-sm font-medium text-gray-500 whitespace-nowrap dark:text-white"
-                >
-                  Phone
-                </td>
-                <td
-                  class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                >
-                  $999
-                </td>
-                <td
-                  class="py-4 px-6 text-sm font-medium text-right whitespace-nowrap"
-                >
-                  <a
-                    href="#"
-                    class="text-blue-600 dark:text-blue-500 hover:underline"
-                    >Edit</a
+                    {{ item.description }}
+                  </td>
+                  <td
+                    class="py-4 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400"
                   >
-                </td>
-              </tr>
-              <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
-                <td
-                  class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                >
-                  Apple Magic Mouse 2
-                </td>
-                <td
-                  class="py-4 px-6 text-sm font-medium text-gray-500 whitespace-nowrap dark:text-white"
-                >
-                  Accessories
-                </td>
-                <td
-                  class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                >
-                  $99
-                </td>
-                <td
-                  class="py-4 px-6 text-sm font-medium text-right whitespace-nowrap"
-                >
-                  <a
-                    href="#"
-                    class="text-blue-600 dark:text-blue-500 hover:underline"
-                    >Edit</a
+                    {{ item.transactionDate }}
+                  </td>
+
+                  <td
+                    class="py-4 px-6 text-sm text-red-500 whitespace-nowrap dark:text-red-400"
                   >
-                </td>
-              </tr>
-              <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
-                <td
-                  class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                >
-                  Apple Watch Series 7
-                </td>
-                <td
-                  class="py-4 px-6 text-sm font-medium text-gray-500 whitespace-nowrap dark:text-white"
-                >
-                  Accessories
-                </td>
-                <td
-                  class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                >
-                  $599
-                </td>
-                <td
-                  class="py-4 px-6 text-sm font-medium text-right whitespace-nowrap"
-                >
-                  <a
-                    href="#"
-                    class="text-blue-600 dark:text-blue-500 hover:underline"
-                    >Edit</a
-                  >
-                </td>
-              </tr>
-            </tbody>
-          </table>
+                    - ${{ item.transactionAmount.toFixed(2) }}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
@@ -175,7 +62,20 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   name: "Table",
+  mounted() {
+    axios.get("http://localhost:3000/transactions").then((result) => {
+      this.items = result.data;
+      // console.log(this.items);
+    });
+  },
+  data() {
+    return {
+      items: "",
+    };
+  },
 };
 </script>

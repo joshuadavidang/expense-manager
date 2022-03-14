@@ -29,6 +29,16 @@ export default {
     };
   },
   mounted() {
+    if (
+      window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches
+    ) {
+      // dark mode
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+
     // if (
     //   localStorage.getItem("color-theme") === "dark" ||
     //   (!("color-theme" in localStorage) &&
@@ -45,13 +55,11 @@ export default {
         this.isActive = true;
         console.log(this.isActive);
         document.documentElement.classList.add("dark");
-
         // Dark Mode Activated
       } else {
         this.isActive = false;
         console.log(this.isActive);
         document.documentElement.classList.remove("dark");
-
         // Dark Mode Disabled
       }
     },

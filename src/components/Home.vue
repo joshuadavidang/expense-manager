@@ -39,7 +39,7 @@
                 <span class="inline-block"> {{ item.description }}</span>
                 <span class="block"> {{ item.transactionDate }}</span>
                 <span class="text-red-500">
-                  - ${{ item.transactionAmount }}</span
+                  - ${{ item.transactionAmount.toFixed(2) }}</span
                 >
               </li>
             </ul>
@@ -63,10 +63,23 @@
         <NavBar />
       </div>
 
+      <!-- Content -->
       <div class="m-8">
-        <p>Total Amount Spent ($)</p>
-        <h2 class="text-mono text-5xl">${{ this.displaySum }}</h2>
-        <Table />
+        <p>
+          Total Amount Spent for
+          <span class="text-green-800 font-semibold underline"
+            >{{ this.presentMonth }}
+          </span>
+          ($)
+        </p>
+
+        <h2 class="text-mono text-5xl mt-5 mb-5">
+          ${{ this.displaySum.toFixed(2) }}
+        </h2>
+
+        <div class="h-96 overflow-y-auto">
+          <Table />
+        </div>
       </div>
     </div>
   </div>
@@ -99,12 +112,32 @@ export default {
         this.displaySum = sum;
       }
     });
+
+    let month = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
+
+    let d = new Date();
+    let m = month[d.getMonth()];
+    this.presentMonth = m;
   },
   data() {
     return {
       name: "",
       items: "",
       displaySum: 0,
+      presentMonth: "",
     };
   },
   methods: {
