@@ -29,25 +29,20 @@ export default {
     };
   },
   mounted() {
+    console.log("Initial Status On Mount", this.isActive);
     if (
       window.matchMedia &&
       window.matchMedia("(prefers-color-scheme: dark)").matches
     ) {
       // dark mode
       document.documentElement.classList.add("dark");
+      this.isActive = true;
+      console.log("Dark Mode Status", this.isActive);
     } else {
       document.documentElement.classList.remove("dark");
+      this.isActive = false;
+      console.log("Light Mode Status", this.isActive);
     }
-
-    // if (
-    //   localStorage.getItem("color-theme") === "dark" ||
-    //   (!("color-theme" in localStorage) &&
-    //     window.matchMedia("(prefers-color-scheme: dark)").matches)
-    // ) {
-    //   document.documentElement.classList.add("dark");
-    // } else {
-    //   document.documentElement.classList.remove("dark");
-    // }
   },
   methods: {
     toggleBtn() {
