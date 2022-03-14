@@ -34,6 +34,7 @@
                   class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700"
                   v-for="item in items"
                   :key="item.id"
+                  v-on:click="getIndividual(item)"
                 >
                   <td
                     class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white"
@@ -76,6 +77,11 @@ export default {
     return {
       items: "",
     };
+  },
+  methods: {
+    getIndividual(item) {
+      console.log(item.id);
+    },
   },
 };
 </script>
