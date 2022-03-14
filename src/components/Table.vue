@@ -80,6 +80,7 @@ export default {
   },
   methods: {
     getIndividual(item) {
+      // test
       console.log(item.id);
     },
   },
