@@ -1,8 +1,14 @@
 import { createApp } from "vue";
 import App from "./App.vue";
 import router from "./routers";
-import './index.css'
+import "./index.css";
 
-<script src="../path/to/flowbite/dist/flowbite.js"></script>
+import VueSweetalert2 from "vue-sweetalert2";
 
-createApp(App).use(router).mount("#app");
+<script src="../path/to/flowbite/dist/flowbite.js"></script>;
+
+const app = createApp(App);
+
+app.use(VueSweetalert2);
+app.use(router);
+app.mount("#app");

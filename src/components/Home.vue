@@ -25,7 +25,7 @@
         <div
           class="bg-white w-4/5 p-5 mt-6 mb-10 rounded-xl h-96 overflow-y-auto"
         >
-          <h2 class="text-center mb-3 font-semibold">Latest Transactions</h2>
+          <h2 class="text-center mb-3">Latest Transactions</h2>
 
           <div class="flex justify-center">
             <ul
@@ -90,10 +90,13 @@ import axios from "axios";
 import Table from "./Table.vue";
 import NavBar from "./NavBar.vue";
 import DarkMode from "./DarkMode.vue";
+import Swal from "sweetalert2";
 
 export default {
   name: "Home",
   mounted() {
+    this.getRequestedData();
+
     let user = localStorage.getItem("user-info");
     if (!user) {
       // if user is not signed in, automatically routes to login page
@@ -103,15 +106,6 @@ export default {
       let userName = JSON.parse(user)[0].name;
       this.name = userName;
     }
-
-    axios.get("http://localhost:3000/transactions").then((result) => {
-      this.items = result.data;
-      let sum = 0;
-      for (var i = 0; i < result.data.length; i++) {
-        sum += result.data[i].transactionAmount;
-        this.displaySum = sum;
-      }
-    });
 
     let month = [
       "January",
@@ -145,10 +139,22 @@ export default {
       let user = localStorage.removeItem("user-info");
       if (!user) {
         this.$router.push({ name: "Login" });
+        Swal.fire("Logged Out!", "", "success");
       }
     },
     addBtn() {
       // alert("Add clicked");
+    },
+
+    getRequestedData() {
+      axios.get("http://localhost:3000/transactions").then((result) => {
+        this.items = result.data;
+        let sum = 0;
+        for (var i = 0; i < result.data.length; i++) {
+          sum += result.data[i].transactionAmount;
+          this.displaySum = sum;
+        }
+      });
     },
   },
   components: {
